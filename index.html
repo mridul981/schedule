@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Geometries</title>
+    <meta name="description" content="Geometries - A-Frame">
+    <script src="../../../dist/aframe-master.js"></script>
+	<script src="js/aframe.min.js"></script>
+    <script src="js/build1.js"></script><!--for text -->
+	<script src="js/build2.js"></script><!--for audio bars -->
+	
+	<script src="font/Dawning-of-a-New-Day_Regular.js"></script>
+    <script src="font/ExoBlack_Regular.js"></script>
+    <script src="font/ExoBoldItalic.js"></script>
+    <script src="js/aframe-orbit-controls-component.js"></script>
+    <script src="js/kframe/aframe-look-at-component.min.js"></script>
+  </head>
+  <body>
+   <a-scene stats="true">
+      <a-assets>
+	  <img id="pink" src="https://img.gs/bbdkhfbzkk/stretch/http://i.imgur.com/1hyyIUi.jpg" crossorigin="anonymous">
+        <img src="https://img.gs/bbdkhfbzkk/2048x1024,stretch/http://i.imgur.com/WMNH2OF.jpg" id="chrome" crossorigin="anonymous">
+	  <a-mixin
+          id="marker"
+          geometry="primitive: plane; width: 0.02; height: 0.02"
+          material="color: red"
+        ></a-mixin>
+        <!-- Geometry mixins. -->
+        <a-mixin id="box"
+                 geometry="primitive: box; depth: .125; height: .125;
+                           width: .300"></a-mixin>
+        <a-mixin id="circle"
+                 geometry="primitive: circle; radius: .2;
+                           segments: 100; thetaStart: 0; thetaLength: 350">
+        </a-mixin>
+        <a-mixin id="cylinder"
+                 geometry="primitive: cylinder; radius: 0.2; height: .5;
+                           segmentsRadial: 50; segmentsHeight: 50:
+                           openEnded: true; thetaStart: 0; thetaLength: 350">
+        </a-mixin>
+        <a-mixin id="ring"
+                  geometry="primitive: ring; radiusInner: .3; radiusOuter: .5;
+                            segmentsTheta: 50"></a-mixin>
+        <a-mixin id="sphere"
+                  geometry="primitive: sphere; radius: .1"></a-mixin>
+        <a-mixin id="torus"
+                  geometry="primitive: torus; arc: 720; radius: .3; radiusTubular: .05;
+                            segmentsTubular: 10;"></a-mixin>
+        <a-mixin id="torus-knot"
+                  geometry="primitive: torusKnot; p: 3; q: 7; radius: .25;
+                            segmentsRadial: 10; radiusTubular: .07; segmentsTubular: 32">
+        </a-mixin>
+		
+		<a-mixin id="spin" attribute="rotation" from="0 0 0"to="0 360 0" repeat="indefinite" easing="linear" dur="10000"></a-mixin>
+		<a-mixin id="spin-x" mixin="spin" attribute="rotation" to="0 360 0"
+                 repeat="indefinite" easing="linear" dur="10000"></a-mixin>
+
+        <!-- Layout mixins. -->
+        <a-mixin id="column"
+                  geometry="primitive: box; depth: .75; height: 0.1; width: .75"
+                  material="color: #FFF" position="0 .6 0"></a-mixin>
+        <a-mixin id="column-bottom" geometry="primitive: box; depth: 1;
+                                              height: .1; width: 1;"
+                 material="color: #FFF" position="0 .1 0">
+        </a-mixin>
+        <a-mixin id="column-light" light="type: point; intensity: 0.5;
+                                          distance: 5;"
+                  position="0 1.5 0">
+        </a-mixin>
+        <a-mixin id="object-on-column" position="0 1.2 0"></a-mixin>
+
+
+
+		<img id="urban" src="urban.jpg">
+        <img id="carpet" src="carpet.jpg">
+        <img id="floor" src="download.jpg">
+		 <img id="final" src="star.jpg">
+		 <img id="campus" src="campus.jpg">
+		 <img id="lilac" src="lilac.jpg">
+		 <img id="aaghaz" src="aaghaz.jpg">
+		 <img id="biswa" src="biswa.jpg">
+		 <img id="dj" src="dj.jpg">
+		 <img id="quillo" src="quillo.jpg">
+		 <img id="prom" src="prom.jpg">
+		 <img id="knights" src="knights.jpg">
+		 <img id="synnove" src="synnove.jpg">
+		 <img id="thread" src="thread.jpg">
+		 <img id="blind" src="blind.jpg">
+		 
+		<a-mixin id="bar" geometry="primitive: box;width:3;depth:3;height:7;"></a-mixin>
+      </a-assets>
+
+	  
+      <!-- Camera. -->
+      <a-entity position="0 1 7">
+        <a-entity camera look-controls wasd-controls>
+        </a-entity>
+      </a-entity>
+
+      <!-- Lights. -->
+      <a-entity light="type: ambient; color: #444"></a-entity>
+      <a-entity light="type: directional; color: #EEE"
+                position="0 1 1">
+      </a-entity>
+
+      <!-- Skysphere. -->
+      <a-entity geometry="primitive: sphere; radius: 80"
+                material="src : #final; shader: flat" scale="1 1 -1">
+      </a-entity>
+	  
+	  
+
+      <!-- Floor. -->
+      <a-entity geometry="primitive: cylinder; height: .2; radius: 12;"
+                material="color: #BABABA; src: #floor;
+                          metalness: .2; repeat: 50 20; roughness: .1"
+                position="0 0 0"></a-entity>
+
+      <!-- Carpet. -->
+      <a-entity geometry="primitive: box; depth: 24; height: 0.025; width: 2"
+                material="color: #440000; metalness: 0; src: #carpet;
+                          repeat: 3 40; roughness: 1"
+                position="0 .2 0">
+      </a-entity>
+	  <!--model-->      
+          
+            <!--a-entity id="model" data-vrscale="0.5 0.5 0.5" data-vr-model-y-axis="0.7" position="3 -5 0"-->             
+        <a-entity position="0 1.5 0" rotation="0 0 0">
+		     <a-entity rotation="0 0 5" position="-20.5 6 -8" text="text: DAY 1; font:dawning of a new day; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 12; size: 4; height: 0;" material="color:#ffff00; metalness:1; roughness: 0; sphericalEnvMap: #pink;"></a-entity>
+			 <a-entity rotation="0 0 5" position="8 6 -8" text="text: DAY 2; font:dawning of a new day; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 12; size: 4; height: 0;" material="color:#ffff00; metalness:1; roughness: 0; sphericalEnvMap: #pink;"></a-entity>
+			
+			<a-entity position="1.8 0 4" scale="0.6 1.2 1" text="text: Aaghaz; font: exo 2 black; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 1; size: 0.5; height: 0;" material="color:#ff6600; metalness:0.9; roughness: 0; sphericalEnvMap: #chrome;">
+				<a-animation mixin="spin" position="0 0 0"></a-animation>
+			</a-entity>
+			<a-entity position="1.5 0 1" scale="0.6 1.2 1" text="text: Blind Dating; font: exo 2 black; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 1; size: 0.5; height: 0;" material="color:#ff6600; metalness:0.9; roughness: 0; sphericalEnvMap: #chrome;">
+				<a-animation mixin="spin"></a-animation>
+			</a-entity>
+			<a-entity position="1.6 0 -2" scale="0.6 1.2 1" text="text: Thread art; font: exo 2 black; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 1; size: 0.5; height: 0;" material="color:#ff6600; metalness:0.9; roughness: 0; sphericalEnvMap: #chrome;">
+				<a-animation mixin="spin"></a-animation>
+			</a-entity>
+			<a-entity position="1.8 0 -5" scale="0.6 1.2 1" text="text: Synnove; font: exo 2 black; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 1; size: 0.5; height: 0;" material="color:#ff6600; metalness:0.9; roughness: 0; sphericalEnvMap: #chrome;">
+				<a-animation mixin="spin"></a-animation>
+			</a-entity>
+			<a-entity position="1.8 0 -8" scale="0.6 1.2 1" text="text: Antraa; font: exo 2 black; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 1; size: 0.5; height: 0;" material="color:#ff6600; metalness:0.9; roughness: 0; sphericalEnvMap: #chrome;">
+				<a-animation mixin="spin"></a-animation>
+			</a-entity>
+			<a-entity position="1.9 0 -11" scale="0.6 1.2 1" text="text: Prom; font: exo 2 black; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 1; size: 0.5; height: 0;" material="color:#ff6600; metalness:0.9; roughness: 0; sphericalEnvMap: #chrome;">
+				<a-animation mixin="spin"></a-animation>
+			</a-entity>
+			<a-entity position="-4 0 4" scale="0.6 1.2 1" text="text: Quillography; font: exo 2 black; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 1; size: 0.5; height: 0;" material="color:#ff6600; metalness:0.9; roughness: 0; sphericalEnvMap: #chrome;">
+				<a-animation mixin="spin"></a-animation>
+			</a-entity>
+			<a-entity position="-3.05 0 1" scale="0.6 1.2 1" text="text: Anhad; font: exo 2 black; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 1; size: 0.5; height: 0;" material="color:#ff6600; metalness:0.9; roughness: 0; sphericalEnvMap: #chrome;">
+				<a-animation mixin="spin"></a-animation>
+			</a-entity>
+			<a-entity position="-4.1 0 -2" scale="0.6 1.2 1" text="text: Campus Princess; font: exo 2 black; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 1; size: 0.5; height: 0;" material="color:#ff6600; metalness:0.9; roughness: 0; sphericalEnvMap: #chrome;">
+				<a-animation mixin="spin"></a-animation>
+			</a-entity>
+			<a-entity position="-3.8 0 -5" scale="0.6 1.2 1" text="text: Urban Thump; font: exo 2 black; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 1; size: 0.5; height: 0;" material="color:#ff6600; metalness:0.9; roughness: 0; sphericalEnvMap: #chrome;">
+				<a-animation mixin="spin"></a-animation>
+			</a-entity>
+			<a-entity position="-3.8 0 -8" scale="0.6 1.2 1" text="text: Lilac Dreams; font: exo 2 black; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 1; size: 0.5; height: 0;" material="color:#ff6600; metalness:0.9; roughness: 0; sphericalEnvMap: #chrome;">
+				<a-animation mixin="spin"></a-animation>
+			</a-entity>
+			<a-entity position="-3.6 0 -11" scale="0.6 1.2 1" text="text: Pro Night; font: exo 2 black; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 1; size: 0.5; height: 0;" material="color:#ff6600; metalness:0.9; roughness: 0; sphericalEnvMap: #chrome;">
+				<a-animation mixin="spin"></a-animation>
+			</a-entity>
+			
+
+		</a-entity>
+     
+	 <!-- Boxes. -->
+	    <a-entity position="0 .6 0" rotation="0 0 0">
+        <a-box src="#campus" position="-2.5 0 -2" width="1" ></a-box>
+		
+		</a-entity>
+		<a-entity position="0 .6 0" rotation="0 0 0">
+        <a-box src="#urban" position="-2.5 0 -5" width="1" ></a-box>
+		
+		</a-entity>
+		<a-entity position="0 .6 0" rotation="0 0 0">
+        <a-box src="#lilac" position="-2.5 0 -8" width="1" ></a-box>
+		
+		</a-entity>
+		<a-entity position="0 .6 0" rotation="0 0 0">
+        <a-box src="#biswa" position="-2.5 0 -11" width="1" ></a-box>
+		
+		</a-entity>
+		<a-entity position="0 .6 0" rotation="0 0 0">
+        <a-box src="#dj" position="-2.5 0 1" width="1" ></a-box>
+		
+		</a-entity>
+		<a-entity position="0 .6 0" rotation="0 0 0">
+        <a-box src="#quillo" position="-2.5 0 4" width="1" ></a-box>
+		
+		</a-entity>
+		<a-entity position="0 .6 0" rotation="0 0 0">
+        <a-box src="#blind" position="2.5 0 1" width="1" ></a-box>
+		
+		</a-entity>
+		<a-entity position="0 .6 0" rotation="0 0 0">
+        <a-box src="#aaghaz" position="2.5 0 4" width="1" ></a-box>
+		
+		</a-entity>
+		<a-entity position="0 .6 0" rotation="0 0 0">
+        <a-box src="#prom" position="2.5 0 -11" width="1" ></a-box>
+		
+		</a-entity>
+		<a-entity position="0 .6 0" rotation="0 0 0">
+        <a-box src="#knights" position="2.5 0 -8" width="1" ></a-box>
+		
+		</a-entity>
+		<a-entity position="0 .6 0" rotation="0 0 0">
+        <a-box src="#synnove" position="2.5 0 -5" width="1" ></a-box>
+		
+		</a-entity>
+		<a-entity position="0 .6 0" rotation="0 0 0">
+        <a-box src="#thread" position="2.5 0 -2" width="1" ></a-box>
+		
+		</a-entity>
+
+		
+    </a-scene>
+  </body>
+</html>
